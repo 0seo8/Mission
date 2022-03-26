@@ -1,0 +1,197 @@
+/* 오늘의 쇼핑 제안 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.ellipsis {
+  width: 172px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* 말줄임 적용 */
+}
+
+.badge-discount::before,
+.delivery::before,
+.review-count::before,
+.star-rating::before {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+}
+
+header {
+  width: 1020px;
+  margin: 100px auto 48px;
+}
+
+header h1 {
+  display: block;
+}
+
+header h1 a {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+}
+
+header .logo {
+  width: 174px;
+  height: 40px;
+}
+
+section {
+  width: 1022px;
+  height: 354px;
+  margin: 0 auto;
+}
+
+.offer-headline {
+  display: flex;
+  margin-bottom: 24px;
+  width: 234px;
+  height: 30px;
+  align-items: center;
+}
+
+.offer-headline .title {
+  display: flex;
+  margin: 1px 30px 1px 0;
+  font-size: 24px;
+  line-height: 27.6px;
+  font-weight: 500;
+  color: var(--color-back);
+  text-align: center;
+  vertical-align: center;
+}
+
+.offer-headline .title::before {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  content: url('/Mission-02/assets/icon/shopping.svg');
+  vertical-align: center;
+  align-items: center;
+}
+
+.product-list {
+  display: flex;
+}
+
+.badge-discount {
+  position: absolute;
+  display: flex;
+  padding: 3px 10px;
+  width: 53px;
+  height: 30px;
+  left: 0;
+  top: 0;
+  justify-content: center;
+  align-items: center;
+  color: var(--color-white);
+  background-color: var(--color-red-500);
+  border-bottom-right-radius: 4px;
+  z-index: 1;
+}
+
+.badge-discount::before {
+  content: '할인율';
+}
+
+.product-list .product {
+  position: relative;
+  width: 200px;
+  height: 270px;
+  background-color: var(--color-white);
+  margin-right: 5px;
+}
+
+.product-list .product:last-child {
+  margin-right: 0;
+}
+
+.product-list .product .item {
+  position: absolute;
+  width: 160px;
+  height: 160px;
+  top: 14px;
+  left: 20px;
+}
+
+.product-list .product .des {
+  position: absolute;
+  width: 172px;
+  height: 67px;
+  top: 186px;
+  left: 14px;
+}
+
+.product-list .product .des .name {
+  width: 172px;
+  height: 17px;
+  margin-bottom: 12px;
+  font-size: 14px;
+  line-height: 17px;
+  font-weight: 400;
+  color: var(--color-back);
+}
+
+.product-list .product .des .rocket {
+  width: 55px;
+  height: 16px;
+}
+
+.product-list .product .des .delivery {
+  display: block;
+}
+
+.delivery::before {
+  content: '배송유형';
+}
+
+.product-list .product .des .free {
+  width: 52px;
+  height: 17px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 17px;
+  color: var(--color-gray-700);
+}
+
+
+
+.product-list .product .review-star-group {
+  display: flex;
+  width: 117px;
+  height: 17px;
+  align-items: center;
+}
+
+.review-star-group .review-count {
+  font-size: 14px;
+  line-height: 16.8px;
+  font-weight: 400;
+  color: var(--color-gray-700);
+}
+
+.review-count::before {
+  content: '구매자 리뷰수';
+}
+
+.star-rating {
+  display: inline-block;
+  width: 100%;
+  height: 12px;
+  overflow: hidden;
+  background: url('/Mission-02/assets/sprites/rating-stars.png');
+  background-repeat: no-repeat;
+}
+
+.star-rating::before {
+  content: '구매자 별점 %';
+}
