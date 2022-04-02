@@ -33,7 +33,11 @@ const StarRating = ($container) => {
 
     star.addEventListener('click', (e) => {
       const num = e.target.getAttribute('data-star');
-      
+      // star.classList.remove('selected')
+
+      for(let i=0; i < $stars.length; i++){
+        $stars[i].classList.remove('selected')
+      }
       
       for (let i = 0; i < num; i++) {
         $stars[i].classList.add('selected')
@@ -41,6 +45,8 @@ const StarRating = ($container) => {
       let myEvent = new CustomEvent('rating-change', { detail: num });
       $container.dispatchEvent(myEvent)    
     })
+
+
   });
 }
 
