@@ -12,4 +12,5 @@ $containers.forEach(($container, i) => {
     const rating = e.detail;
     $currentRatings[i].textContent = rating;
   });
+
 });
