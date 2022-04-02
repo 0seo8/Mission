@@ -30,11 +30,16 @@ const StarRating = ($container) => {
         $stars[i].classList.remove('hovered')
       }
     })
+
     star.addEventListener('click', (e) => {
       const num = e.target.getAttribute('data-star');
+      
+      
       for (let i = 0; i < num; i++) {
         $stars[i].classList.add('selected')
       }
+      let myEvent = new CustomEvent('rating-change', { detail: num });
+      $container.dispatchEvent(myEvent)    
     })
   });
 }
