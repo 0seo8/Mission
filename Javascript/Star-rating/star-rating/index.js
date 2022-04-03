@@ -2,9 +2,7 @@
 const StarRating = ($container) => {
   $container.classList.add('star-rating-container');
 
-  const starRating = $container.closest('.star-rating')
-  const maxRating = starRating.getAttribute('data-max-rating')
-
+  const maxRating = $container.getAttribute('data-max-rating')
   const newNode = document.createDocumentFragment();
 
   for (let i = 0; i < maxRating; i++) {
@@ -45,20 +43,16 @@ const StarRating = ($container) => {
       let myEvent = new CustomEvent('rating-change', { detail: num });
       $container.dispatchEvent(myEvent)    
     })
-
-
   });
+  const addLinkCss = () => {
+    const LinkNode = document.createElement('link');
+    LinkNode.type = "text/css"
+    LinkNode.rel = "stylesheet"
+    LinkNode.href = "./star-rating/theme.css"
+    document.head.appendChild(LinkNode)
+  }
+  
+  window.addEventListener('DOMContentLoaded', addLinkCss)
 }
-
-const addLinkCss = () => {
-  const LinkNode = document.createElement('link');
-  LinkNode.type = "text/css"
-  LinkNode.rel = "stylesheet"
-  LinkNode.href = "./star-rating/theme.css"
-  document.head.appendChild(LinkNode)
-}
-
-window.addEventListener('DOMContentLoaded', addLinkCss)
-
 
 export default StarRating;
