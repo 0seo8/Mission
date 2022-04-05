@@ -3,7 +3,7 @@
   --element-height: calc(var(--calendar-size) / 7);
   --font-size-nav: calc(var(--element-height) * .5 );
   --font-size--content: calc(var(--element-height) * .4 );
-  --circle-size: calc(var(--font-size--content) * 1.5);
+  --circle-size: calc(var(--font-size--content) * 1.8);
 }
 
 * {
@@ -61,10 +61,16 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  line-height: 1.2;
 }
 
 .date:nth-child(7n+1) {
   color: #db5b33;
+}
+
+.day > span,
+.date > span {
+  width: 100%;
 }
 
 .other {

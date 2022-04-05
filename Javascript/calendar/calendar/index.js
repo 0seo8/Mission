@@ -68,6 +68,19 @@ export function renderCalender() {
       }
     }
   }
+  const addActive = () => {
+    document.querySelector('.calendar').classList.add('active')
+  }
+
+  const removeActive = (e) => {
+    console.log(e.target.tagName)
+
+    document.querySelector('.calendar').classList.remove('active')
+  }
+
+  const $input = document.querySelector('.input')
+  $input.addEventListener('focus', addActive )
+  
 }
 
 export function Btn(els) {
@@ -84,4 +97,6 @@ export function Btn(els) {
       renderCalender();
     }
   })
+  console.log(document.querySelector('.calendar'))
+
 }

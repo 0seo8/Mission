@@ -1,4 +1,12 @@
+import {renderCalender} from './index.js'
+
 export function createEl($container) {
+  const LinkNode = document.createElement('link');
+  LinkNode.rel = "stylesheet"
+  LinkNode.href = "./calendar/them.css"
+  document.head.appendChild(LinkNode)
+
+
   const newDiv = document.createElement('div');
   newDiv.classList.add('calendar')
   newDiv.innerHTML = `    
@@ -11,10 +19,8 @@ export function createEl($container) {
 
   $container.appendChild(newDiv)
 
-  const LinkNode = document.createElement('link');
-  LinkNode.rel = "stylesheet"
-  LinkNode.href = "./calendar/them.css"
-  document.head.appendChild(LinkNode)
-
+  renderCalender()
 }
+
+
 
