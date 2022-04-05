@@ -10,11 +10,11 @@ export function createEl($container) {
     <div class="calendar-grid"></div>`
 
   $container.appendChild(newDiv)
-}
 
-export function LinkCSS () {
   const LinkNode = document.createElement('link');
   LinkNode.rel = "stylesheet"
   LinkNode.href = "./calendar/them.css"
   document.head.appendChild(LinkNode)
-}  
+
+}
+
