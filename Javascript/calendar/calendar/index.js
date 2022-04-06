@@ -1,9 +1,9 @@
-const date = new Date();
+let date = new Date();
+const Montharr = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
 export function renderCalender() {
   const viewYear = date.getFullYear();
   const viewMonth = date.getMonth();
-  const Montharr = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
   const thisMonth = Montharr[viewMonth]
 
   document.querySelector('.go-today').innerHTML =
@@ -72,11 +72,11 @@ export function renderCalender() {
     document.querySelector('.calendar').classList.add('active')
   }
 
-  const removeActive = (e) => {
-    console.log(e.target.tagName)
+  // const removeActive = (e) => {
+  //   console.log(e.target.tagName)
 
-    document.querySelector('.calendar').classList.remove('active')
-  }
+  //   document.querySelector('.calendar').classList.remove('active')
+  // }
 
   const $input = document.querySelector('.input')
   $input.addEventListener('focus', addActive )
