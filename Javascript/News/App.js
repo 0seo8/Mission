@@ -2,9 +2,12 @@
 
 import axios from 'axios'
 
+// pageSize에 5를 지정하면 5개의 뉴스를 취득한다.
+const url = `https://newsapi.org/v2/top-headlines?country=kr&category=${category === 'all' ? '' : category}&page=${page}&pageSize=${pageSize}&apiKey=${apiKey}`
+
 function fetchNews () {
   axios
-  .get('https://newsapi.org/v2/top-headlines?country=us&apiKey=d417d50a085b4ed4a42bae22070aa8b3')
+  .get(url)
   .then((response) => {
     console.log(response)
   })
