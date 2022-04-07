@@ -1,5 +1,6 @@
 // do something!
 
+import './style.css'
 import axios from 'axios'
 
 // pageSize에 5를 지정하면 5개의 뉴스를 취득한다.
