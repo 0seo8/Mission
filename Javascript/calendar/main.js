@@ -9,6 +9,3 @@ const $input = document.querySelector('.input')
 const $calendar = document.querySelector('.calendar')
 
 Selected($input, $calendar)
-
-
-

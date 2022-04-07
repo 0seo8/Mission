@@ -68,19 +68,24 @@ export function renderCalender() {
       }
     }
   }
-  const addActive = () => {
-    document.querySelector('.calendar').classList.add('active')
+  const $calendar = document.querySelector('.calendar')
+  const $input = document.querySelector('.input')
+
+
+  const onFocus = () => {
+    $input.value = '';
+    $calendar.classList.add('active')
+    $input.focus();
   }
 
-  // const removeActive = (e) => {
-  //   console.log(e.target.tagName)
-
-  //   document.querySelector('.calendar').classList.remove('active')
+  // const onBlur = () => {
+  //   $calendar.classList.remove('active')
   // }
 
-  const $input = document.querySelector('.input')
-  $input.addEventListener('focus', addActive )
-  
+  $input.addEventListener('focus', onFocus)
+  // $input.addEventListener('blur', onBlur)
+
+
 }
 
 export function Btn(els) {
@@ -97,6 +102,5 @@ export function Btn(els) {
       renderCalender();
     }
   })
-  console.log(document.querySelector('.calendar'))
-
 }
+
