@@ -1,6 +1,14 @@
-import {render} from './components/Nav.js'
+// do something!
+import './style.css'
+import { Nav, NewsList } from './components/index.js'
 
-const $root = document.querySelector('#root');
+const $root = document.querySelector('#root')
 
-render($root)
+const init = () => {
+   new Nav($root);
+   new NewsList($root);
+};
 
+window.addEventListener('DOMContentLoaded', async () => {
+  init();
+});
