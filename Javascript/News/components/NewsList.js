@@ -1,69 +1,95 @@
 // do something!
 import axios from 'axios'
+import { state } from './Nav.js'
 
-const NewsList = ($root) => {
-  let page = 0;
-  const pageSize = 5;
-  const apiKey = 'd417d50a085b4ed4a42bae22070aa8b3';
-  const $article = $root.querySelector('.news-list')
-  const $scrollObserver = $root.querySelector('.scroll-observer')
-  
+let proxy = new Proxy(state.selected, {})
+
+const api_Key = state.apiKey;
+
+const NewsList = () => {
+  const $newsList = document.querySelector('.news-list')
   const hideLoader = () => {
-    $scrollObserver.style.visibility = 'hidden';
+    $newsList.style.visibility = 'hidden';
   };
   const showLoader = () => {
-    $scrollObserver.style.visibility = 'visible';
+    $newsList.style.visibility = 'visible';
+  };
+  
+  const renderItem = (item) => {
+    const $newsList = document.querySelector('.news-list')
+    const frag = document.createDocumentFragment();
+    frag.appendChild(item)
+    $newsList.appendChild(frag)
+
+    return $newsList;
   };
 
-  const renderItem = ({  title, url, urlToImage, description }) => {
-      const $newsItem = document.createElement('section');
-      $newsItem.classList.add('news-item');
-      $newsItem.innerHTML = `
-      <div class="thumbnail">
-        <a href="${url}" target="_blank" rel="noopener noreferrer">
-          <img src="${urlToImage}" alt="thumbnail" />
-        </a>
-       </div>
-      <div class="contents">
-        <h2>
-          <a href="${url}" target="_blank" rel="noopener noreferrer">${title}</a>
-        </h2>
+  const createItem = ({ title, url, urlToImage, description }) => {
+    const $newsItem = document.createElement('section')
+    $newsItem.classList.add('news-item')
+    $newsItem.insertAdjacentHTML(
+      "beforeend",
+       ` <div class="thumbnail">
+          <a href="${url}" target="_blank" rel="noopener noreferrer">
+            <img src="${urlToImage}" alt="thumbnail" />
+          </a>
+        </div>
+        <div class="contents">
+          <h2>
+            <a href="${url}" target="_blank" rel="noopener noreferrer">${title}</a>
+          </h2>
           <p>${description}</p>
-      </div>`;      
-    
-    return $newsItem;
-  };
+        </div>`);    
+    renderItem($newsItem)
+  }
+
+  // const selectedCategory = (article) => {
+  //   const $newsList = document.querySelector('.news-list')
+  //   $newsList.innerHTML='';
+  //   createItem(article)
+  // }
 
   const showNews = (aritcles) => {
     aritcles.forEach( (article) => {
-      $article.appendChild(renderItem(article))
+      createItem(article);
     });
   }
 
-  const getNews = async (category = 'all', page, pageSize = 5) => {
-    const url = `https://newsapi.org/v2/top-headlines?country=kr&category=${category === 'all' ? '' : category}&page=${page}&pageSize=${pageSize}&apiKey=${apiKey}`
-    const response = await axios.get(url);
 
+  const getNews = async (category='all', page, pageSize=5) => {
+    const url = `https://newsapi.org/v2/top-headlines?country=kr&category=${category === 'all' ? '' : category}&page=${page}&pageSize=${pageSize}&apiKey=${api_Key}`
+    const response = await axios.get(url);
+    console.log('newlist', state.selected.selected)
+    console.log(response)
     return response.data.articles;
   }
 
-  const loadNews = async (category = 'all', page, pageSize) => {
-    showLoader()
+  document.addEventListener('click', (e) => onClick(e));
+  const onClick = (e) => {  
+    if(!e.target.classList.contains('category-item')) return
+    const $newsList = document.querySelector('.news-list')
+    document.querySelectorAll('li').forEach(el => el.classList.remove('active'))
+    proxy.selected = e.target.id;
+    e.target.classList.add('active');
+    $newsList.innerHTML='';
+    new loadNews(proxy.selected)
+  }
+
+
+  const loadNews = async (category, page, pageSize) => {
+    // showLoader()
     try {
       const response = await getNews(category, page, pageSize)
       showNews(response)
-      console.log(response)
+      console.log('response', response)
     } catch (error) {
       console.error(error.message)
     } finally {
-      hideLoader()
+      // hideLoader()
     }
   }
   loadNews()
 
-  window.addEventListener('DOMContentLoaded', () => {
-    loadNews(page, pageSize)
-  })
 
 }
 
