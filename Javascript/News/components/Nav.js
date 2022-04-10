@@ -1,5 +1,5 @@
 export let state = {
-  apiKey:'d417d50a085b4ed4a42bae22070aa8b3',
+  apiKey:'137e5da792b2487a92ecbb8b58c7886d',
   categories : {
     all: '전체보기',
     business: '비즈니스',
@@ -24,7 +24,9 @@ const Nav = ($root ) => {
    </nav>
    <div class="news-list-container">
       <article class="news-list"></article>
-      <div class="scroll-observer"></div>
+      <div class="scroll-observer">
+        <img src="./ball-triangle.svg" alt="Loading..." style="visibility = visible;"/>
+      </div>
    </div> 
   `;
   document.querySelector('#all').classList.add('active');
