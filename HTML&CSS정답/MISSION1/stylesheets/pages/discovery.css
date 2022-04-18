@@ -1,0 +1,124 @@
+/* 오늘의 발견 */
+
+/* HEADER */
+.header {
+  width: 102rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 로고 영역 여백 컨트롤 :h1의 에이전트 스타일을 재지정 */
+.brand {
+  margin-top: 10rem;
+  margin-bottom: 2.8rem;
+}
+
+.brand__link {
+  display: block;
+  width: 17.6rem;
+}
+
+.brand__images {
+  max-width: 100%;
+  height: auto;
+}
+
+
+/* SECTION영역 */
+.discovery {
+  /* background-color: yellow; */
+  width: 103.6rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10rem;
+}
+
+/* 섹션 헤드라인 */
+
+.discovery__headline {
+  display: flex;
+  /* 명시적 */
+  flex-flow: row nowrap;
+  align-items: center;
+  margin-left : .8rem;
+}
+
+.discovery__title, .discovery__subtitle {
+  margin: 0;
+  font-weight: 500;
+}
+
+.discovery__title {
+  font-size: 2.4rem;
+
+}
+
+.discovery__headline .divider {
+  color: var(--color-gray-600);
+  margin: 0 1rem;
+}
+
+.discovery__subtitle {
+  font-size: 1.6rem;
+  color: var(--color-gray-600);
+}
+
+/* 상품카드 링크영역 */
+
+.discovery__list {
+  list-style: none;
+  padding-left: 0;
+  overflow: hidden;
+  margin: .8rem 0 0 0;
+}
+
+.discovery__item {
+  float: left;
+  margin: 1.6rem 0.8rem 0;
+}
+
+.discovery__link {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--color-gray-500);
+  height: 31rem;
+  position: relative;
+}
+
+.cardLink--large {
+  width: 50.2rem;
+}
+
+.cardLink--small {
+  width: 24.3rem;
+}
+
+.discovery__button {
+  position: absolute;
+  left: 2rem;
+  bottom: 2rem;
+  width: 4.2rem;
+  height: 4.2rem;
+  background: var(--color-opacity-20) url('./../../assets/icon/angle-right-square.svg') no-repeat 100% 50%;
+  font-size: 1.4rem;
+  font-weight: 500;
+  line-height: 1.2;
+  transition: background 0.4s;
+}
+
+.discovery__link:hover .discovery__button, .discovery__link:focus .discovery__button {
+  /* background로 설정시, 이미지까지 사라질수 있기에 backgroun-color로 사용 */
+  background-color: var(--color-blue-600);
+  /* width값을 설정하더라도 안에 내용물이 없기에 width를 가질 수 없습니다. */
+  /* 따라서 hover시 aria-label값이 노출되도록 처리를 해주어야 합니다. */
+  width: auto;
+  padding: 1.2rem 4rem 1.3rem 2rem;
+  color: var(--color-white);
+}
+
+.discovery__link:hover .discovery__button::before,
+.discovery__link:focus .discovery__button::before  {
+  content: attr(aria-label);
+}

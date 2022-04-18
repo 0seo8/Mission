@@ -1,0 +1,123 @@
+/* 오늘의 쇼핑 제안 */
+
+/* 헤더 */
+.header {
+  width: 102rem;
+  margin: 10rem auto 4.8rem;
+}
+
+.brand {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.brand__link {
+  display: block;
+  height: 4rem;
+}
+
+.brand__image {
+  width: auto;
+  height: 100%;
+}
+
+/* 오늘의 쇼핑 제안 */
+.offer {
+  width: 102rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.offer__title {
+  background: url('../../assets/icon/shopping.svg') no-repeat 0 50%;
+  padding-left: 3rem;
+  font-size: 2.4rem;
+  font-weight: 500;
+}
+
+.offer__list {
+  list-style: none;
+  margin: 2.4rem 0;
+  padding-left: 0;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+
+.offer__item {
+  width: 20rem;
+  height: 27rem;
+}
+
+.offer__link {
+  display: block;
+  padding: 1.4rem;
+}
+/* 상품 카드 */
+
+.product {
+  position: relative;
+}
+
+.product__card {
+  text-align: center;
+}
+
+.product__caption {
+  text-align: left;
+  margin: 1.2rem 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 1.4rem;
+  line-height: 1.2;
+}
+
+.product__discount {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: var(--color-red-500);
+  color: var(--color-white);
+  font-weight: 500;
+  line-height: 1.5;
+  padding: .3rem 1rem;
+  border-bottom-right-radius: .4rem;
+}
+
+.ratingStar {
+  display: inline-block;
+  width: 6.8rem;
+  height: 1.2rem;
+  background-image: url('../../assets/sprites/rating-stars.png');
+  background-repeat: no-repeat;
+}
+
+.score0 { background-position: 0 0;}
+.score0-5 { background-position: 0 -14px;}
+.score1 { background-position: 0 -28px;}
+.score1-5 { background-position: 0 -42px;}
+.score2 { background-position: 0 -56px;}
+.score2-5 { background-position: 0 -70px;}
+.score3 { background-position: 0 -84px;}
+.score3-5 { background-position: 0 -98px;}
+.score4 { background-position: 0 -112px;}
+.score4-5 { background-position: 0 -126px;}
+.score5 { background-position: 0 -140px;}
+
+.product .free {
+  color: var(--color-gray-700);
+  font-size: 1.4rem;
+  line-height: 1.2;
+  font-weight: 500;
+}
+
+.product .review {
+  color: var(--color-gray-700);
+  font-size: 1.4rem;
+  line-height: 1.2;
+}
+
+.product__ratingStar, .product__review {
+  display: inline-block;
+}

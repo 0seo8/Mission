@@ -1,0 +1,12 @@
+/* Hidden Content */
+.sr-only {
+  background-color: skyblue;
+  position: absolute;
+  /* 보조기기가 가상커서를 사용해 화면을 선택하기 떄문에 최소한의 focus영역을 남긴 것  */
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  clip-path: polygon(0 0,0 0,0 0);
+  white-space: nowrap;
+}
